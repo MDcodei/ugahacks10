@@ -4,14 +4,10 @@ import './register.css'; // Import the CSS
 const Register = () => {
   const [showModal, setShowModal] = useState(true);
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <>
       {showModal && (
-        <div className="modal-overlay" onClick={closeModal}>
+        <div className="modal-overlay">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <form className="form">
               <p className="title">Register</p>
