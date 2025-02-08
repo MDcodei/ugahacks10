@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     padding-left: 30px;
-    color: #00bfff;
+    color: #bf55cf;
   }
   
   .title::before {
@@ -67,7 +67,7 @@
     width: 16px;
     border-radius: 50%;
     left: 0px;
-    background-color: #00bfff;
+    background-color: #bf55cf;
   }
   
   .message, 
@@ -81,11 +81,11 @@
   }
   
   .signin a:hover {
-    text-decoration: underline royalblue;
+    text-decoration: underline #bf55cf;
   }
   
   .signin a {
-    color: #00bfff;
+    color: #bf55cf;
   }
   
   .flex {
