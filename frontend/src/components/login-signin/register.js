@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import './register.css'; // Import the CSS
 
-const Register = () => {
+const Register = ({ onToggle, onSuccess }) => {
   const [showModal, setShowModal] = useState(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSuccess(); // Redirect to aftersignin
+  };
 
   return (
     <>
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <p className="title">Register</p>
               <p className="message">Signup now and get full access to our app.</p>
               <div className="flex">
@@ -42,7 +47,7 @@ const Register = () => {
               <button className="submit" type="submit">Submit</button>
 
               <p className="signin">
-                Already have an account? <a href="#">Signin</a>
+                Already have an account? <a onClick={onToggle}>Signin</a>
               </p>
             </form>
           </div>
