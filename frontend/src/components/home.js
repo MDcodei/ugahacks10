@@ -8,14 +8,25 @@ import backgroundImage from "./images/background.jpg";
 import './home.css';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Card from "./favoritesCard"; // Import the favorites card
 
 const Home = () => {
   const [hoveredHeart, setHoveredHeart] = useState(false);
   const [hoveredLogout, setHoveredLogout] = useState(false);
+  const [confirmedCountry, setConfirmedCountry] = useState(""); // Only update when Enter is pressed
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
   const navigate = useNavigate();
 
   const handleHeartClick = () => navigate("/favorites");
   const handleLogout = () => navigate("/");
+
+  const handleGenerateClick = () => {
+    setIsModalOpen(true); // Open modal on Generate button click
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Close modal
+  };
 
   return (
     <div>
@@ -46,22 +57,46 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <Location />
 
-      {/* Flex container to position Genre on the left and Slider on the right */}
-      <div className="content-container">
-        <div className="genre-section">
-          <Genre />
+      {/* Pass setConfirmedCountry to Location */}
+      <Location setConfirmedCountry={setConfirmedCountry} />
+
+      {/* Conditionally render Genre, Slider, and Button only when Enter is pressed */}
+      {confirmedCountry && (
+        <>
+          <div className="content-container">
+            <div className="genre-section">
+              <Genre />
+            </div>
+            <div className="slider-section">
+              <SliderComponent />
+            </div>
+          </div>
+          <div className="centered-container">
+            <Stack spacing={2} direction="row">
+              <Button
+                variant="outlined"
+                className="generate-button"
+                onClick={handleGenerateClick} // Open the modal on click
+              >
+                Generate
+              </Button>
+            </Stack>
+          </div>
+        </>
+      )}
+
+      {/* Modal for the Favorites Card */}
+      {isModalOpen && (
+        <div>
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <Card /> 
+            <Button variant="outlined" onClick={handleCloseModal}>Favorite</Button>
+          </div>
         </div>
-        <div className="slider-section">
-          <SliderComponent />
         </div>
-      </div>
-      <div className="centered-container">
-        <Stack spacing={2} direction="row">
-        <Button variant="outlined" className="generate-button">Generate</Button>
-        </Stack>
-      </div>
+      )}
     </div>
   );
 };

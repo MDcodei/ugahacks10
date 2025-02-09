@@ -13,7 +13,7 @@ const SliderComponent = () => {
         <div 
         style={{
           position: 'absolute',
-          right: 280,
+          right: 300,
           top: '45%', // Adjust top positioning as needed
           transform: 'translateY(-50%)',
           paddingRight: 2, // Optional: adds some padding from the right edge
@@ -22,7 +22,7 @@ const SliderComponent = () => {
           color: 'white',
         }}
       >
-        Dance Ability
+        Danceable
       </div>
         <Box
       sx={{

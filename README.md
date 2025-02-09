@@ -1,21 +1,20 @@
-## Setup
+# MUSIC IS LIFE
 
-- Backend:
-   - python3 -m venv env
-   - pip install fastapi uvicorn sqlalchemy psycopg2
+## Team Members: 
+* Mukta Deshmukh
+* Sanjana Arun
+* Birva Vashi
+* Diya Anand
 
-## Execution
+## Purpose of the Project: 
+Our project aims to create a web application that immerses you in the world of music. 'thePlaylist8' web application generates a personalized playlist, catering to your taste, based on the Country, Genre, Dance Ability, Mood, and Popularity. The database features various artists from the world, so this platform helps them to promote their music to a bigger audience. You can favorite playlists that resonate with you and discover new artists and sounds that expand your musical horizons.
 
-1. You can download the Zip file and extract it
-2. Open the project in you preferred IDE with the root folder named `UGAHACKS10`
-3. Navigate to `backend/database.py`
-4. Modify the following based on your the setup of PostgreSQL: make sure schema name on application.properties is same as pgAdmin4
-   1. `USERNAME= <your_username>`
-   2. `PASSWORD= <your_password>`
-   3. `HOSTNAME = <your_hostname>`
-   4. `PORT = <your_port_num>`
-   5. `SCHEMA_NAME = <your_schema>`
-6. Locate the terminal and run the following commands to start the Backend:
-   1. Enter `cd backend`
-   2. `uvicorn main:app --reload`
-8. Check the build terminal, to see if the FastAPI project is running (API endpoints on localhost:8080, PostgreSQL on port 5433)
+## Tools Utilized: `REACT.JS`, `PostgreSQL`, `HPCC High Performing Computing Cluster`, `Nominatim`
+
+## Public Frameworks:  `FAST API`
+
+## Problems/Challenges: 
+* A major challenge we encountered was implementing user authentication within our application. Initially, we attempted to use Auth0 to handle user logins and registrations, but we found it too complex to integrate, given our limited time frame. We then explored JavaScript’s Auth.js library, however, we still faced difficulties in seamlessly integrating it into our system.
+
+* Working with the HPCC Systems ECL Clusers, we initially had challenges with coding in ECL and retrieving data from the cluser. However, after working through some of the challenge questions provided by HPCC Systems, we were able to successfull clean the 2 datasets we used, Million Song Dataset and Spotify Million, and prepare the dataset for our web application. 
+

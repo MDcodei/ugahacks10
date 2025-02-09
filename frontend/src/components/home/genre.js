@@ -6,15 +6,15 @@ const genres = [
   "Trip-Hop", "Breakbeat", "Rock", "Ska", "Death-Metal", "Singer-songwriter", "Alt-Rock", "Ambient",
   "Classical", "Afrobeat", "Funk", "Swedish", "Indian", "Folk", "PowerPop", "Dub",
   "Chicago-House", "House", "Garage", "Grindcore", "Country", "Jazz", "Punk", "Hard-Rock",
-  "Synthwave", "Trap", "Hard Rock", "Dubstep", "Ambient", "Drum & Bass", "EDM", "Bluegrass"
+  "Pump-Rock", "Spanish", "Techno", "German", "Hip-Hop", "Drum & Bass", "EDM", "Bluegrass"
 ];
 
 const colors = [
-  "#ff4757", "#3742fa", "#ffa502", "#3742fa", "#eccc68", "#5352ed", "#ff7f50", "#1e90ff",
-  "#ff6348", "#57606f", "#f9ca24", "#7ed6df", "#e056fd", "#192a56", "#eb4d4b", "#30336b",
-  "#22a6b3", "#be2edd", "#4834d4", "#ffbe76", "#ff4757", "#c7ecee", "#dff9fb", "#f0932b",
-  "#686de0", "#95afc0", "#130f40", "#ff7979", "#f6e58d", "#7f8fa6", "#273c75", "#e84118",
-  "#3742fa", "#0097e6", "#8c7ae6", "#2f3640", "#e1b12c", "#ff4757", "#40739e", "#192a56"
+  "#50808e", "#ff729f", "#81f4e1", "#fc8936", "#36213e", "#ffcf56", "#902923", "#353531",
+  "#301014", "#ffda22", "#e77728", "#ed217c", "#656256", "#5586", "#820d1c", "#004f2d",
+  "#ff9b71", "#edb230", "#824670", "#548687", "#93032e", "#9eb25d", "#ff9f1c", "#301014",
+  "#19535f", "#42033d", "#4c596b", "#51291e", "#473335", "#d3b88c", "#6a381f", "#373f47",
+  "#363635", "#f58f00", "#007fff", "#774e24", "#ff8552", "#595a4a", "#1affd5", "#4cb963"
 ];
 
 const Genre = () => {

@@ -44,7 +44,6 @@ const  Favorites = () => {
             </div>
             <div className="cards-container">
                 <Card />
-                <Card />
             </div>
         </div>
     );

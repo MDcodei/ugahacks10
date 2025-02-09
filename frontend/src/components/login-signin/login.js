@@ -8,9 +8,23 @@ const Login = ({ onToggle, onSuccess }) => {
     const [showModal, setShowModal] = useState(true);
     
     const handleSubmit = (e) => {
-        e.preventDefault();
-        onSuccess(); // Redirect to aftersignin
-      };
+      e.preventDefault();
+      
+      // Validation check for email and password
+      if (email === validEmail && password === validPassword) {
+          setError("");  // Clear any previous error messages
+          onSuccess();   // Call the success function, for example redirecting
+      } else {
+          setError("Invalid email or password"); // Show error message if credentials don't match
+      }
+  };
+
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+      const [error, setError] = useState("");
+      
+      const validEmail = "jane@doe.com";
+      const validPassword = "password123";
 
     return (
       <>
@@ -22,15 +36,30 @@ const Login = ({ onToggle, onSuccess }) => {
                 <p className="message">Sign in to your account and enjoy full access.</p>
                 
                 <label>
-                  <input className="input" type="email" placeholder="" required />
+                  <input
+                    className="input"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder=""
+                    required
+                  />
                   <span>Email</span>
                 </label>
   
                 <label>
-                  <input className="input" type="password" placeholder="" required />
+                  <input
+                    className="input"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder=""
+                    required
+                  />
                   <span>Password</span>
                 </label>
-  
+                {error && <p className="error-message">{error}</p>} 
+
                 <button className="submit" type="submit">Login</button>
   
                 <p className="signup">
