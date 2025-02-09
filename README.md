@@ -12,7 +12,8 @@ Our project aims to create a web application that immerses you in the world of m
 ## Tools Utilized: 
 `REACT.JS`, `PostgreSQL`, `HPCC High Performing Computing Cluster`, `Nominatim`
 
-## Public Frameworks:  `FAST API`
+## Public Frameworks:  
+`FAST API`
 
 ## Problems/Challenges: 
 * A major challenge we encountered was implementing user authentication within our application. Initially, we attempted to use Auth0 to handle user logins and registrations, but we found it too complex to integrate, given our limited time frame. We then explored JavaScript’s Auth.js library, however, we still faced difficulties in seamlessly integrating it into our system.
