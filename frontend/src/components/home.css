@@ -1,0 +1,79 @@
+/* Add this to your global CSS file (e.g., App.css) */
+@keyframes neon-border {
+    0% {
+      box-shadow: 0 0 10px #f5b6ff, 0 0 20px #f5b6ff, 0 0 30px #f5b6ff;
+    }
+    100% {
+      box-shadow: 0 0 10px #bf55cf, 0 0 20px #bf55cf, 0 0 30px #bf55cf;
+    }
+}
+
+.neon-border {
+    position: relative;
+    display: inline-block; /* Ensures the box wraps tightly around the text */
+    padding: 5px 10px; /* Adjust padding to control the size */
+    background-color: #000; /* Black background */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+}
+
+.neon-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ed78ff; /* Neon orange border */
+    border-radius: 5px;
+    animation: neon-border 3s infinite alternate;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+  border-radius: 8px; /* Optional: Add rounded corners to the border */
+  
+}
+
+.generate-button {
+  color: #ffffff; /* Text color */
+  border-color: #e056fd; /* Border color */
+}
+
+.generate-button:hover {
+  background-color: #e056fd; /* Hover background */
+  border-color: #ffffff; /* Hover border color */
+  color: #1a1a1a; /* Text color on hover */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.generate-button {
+  margin-top: 20px;
+}
