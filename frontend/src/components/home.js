@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { FaHeart, FaSignOutAlt } from "react-icons/fa"; // Import the icons you need
+import { FaHeart, FaSignOutAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Location from "./home/location.js";
 import SliderComponent from "./home/other_features.js";
+import Genre from "./home/genre.js"; // Import the Genre component
 import backgroundImage from "./images/background.jpg";
 import './home.css';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 const Home = () => {
   const [hoveredHeart, setHoveredHeart] = useState(false);
   const [hoveredLogout, setHoveredLogout] = useState(false);
+  const navigate = useNavigate();
+
+  const handleHeartClick = () => navigate("/favorites");
+  const handleLogout = () => navigate("/");
 
   return (
     <div>
@@ -17,28 +25,42 @@ const Home = () => {
           <div
             style={{
               ...styles.iconWrapper,
-              backgroundColor: hoveredHeart ? "#bf55cf" : "black", // Change to purple on hover for heart
+              backgroundColor: hoveredHeart ? "#bf55cf" : "black",
             }}
-            onMouseEnter={() => setHoveredHeart(true)} // Hover effect for heart icon
-            onMouseLeave={() => setHoveredHeart(false)} // Reset hover effect for heart icon
+            onMouseEnter={() => setHoveredHeart(true)}
+            onMouseLeave={() => setHoveredHeart(false)}
+            onClick={handleHeartClick}
           >
             <FaHeart style={styles.icon} />
           </div>
           <div
             style={{
               ...styles.iconWrapper,
-              backgroundColor: hoveredLogout ? "#bf55cf" : "black", // Change to purple on hover for logout
+              backgroundColor: hoveredLogout ? "#bf55cf" : "black",
             }}
-            onMouseEnter={() => setHoveredLogout(true)} // Hover effect for logout icon
-            onMouseLeave={() => setHoveredLogout(false)} // Reset hover effect for logout icon
+            onMouseEnter={() => setHoveredLogout(true)}
+            onMouseLeave={() => setHoveredLogout(false)}
+            onClick={handleLogout}
           >
             <FaSignOutAlt style={styles.icon} />
           </div>
         </div>
       </header>
-      <div>
-        <Location />
-        <SliderComponent />
+      <Location />
+
+      {/* Flex container to position Genre on the left and Slider on the right */}
+      <div className="content-container">
+        <div className="genre-section">
+          <Genre />
+        </div>
+        <div className="slider-section">
+          <SliderComponent />
+        </div>
+      </div>
+      <div className="centered-container">
+        <Stack spacing={2} direction="row">
+        <Button variant="outlined" className="generate-button">Generate</Button>
+        </Stack>
       </div>
     </div>
   );
@@ -47,15 +69,15 @@ const Home = () => {
 const styles = {
   header: {
     display: "flex",
-    justifyContent: "right", // This ensures the icons are on the right and the h3 is centered
+    justifyContent: "right",
     alignItems: "center",
     padding: "10px",
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    position: "relative", // Add this to help with centering
-    height: "80px"
+    position: "relative",
+    height: "80px",
   },
   h3: {
     color: "white",
@@ -63,16 +85,16 @@ const styles = {
     fontFamily: "'Space Grotesk', sans-serif",
     fontSize: "38px",
     fontWeight: "400",
-    margin: 0, // Ensure there's no extra margin
-    padding: "5px 10px", // Adjust padding to control the size
-    position: "absolute", // Position the h3 absolutely within the header
-    left: "50%", // Move the h3 to the center horizontally
-    transform: "translateX(-50%)", // Adjust for the h3's own width
+    margin: 0,
+    padding: "5px 10px",
+    position: "absolute",
+    left: "50%",
+    transform: "translateX(-50%)",
   },
   iconContainer: {
     display: "flex",
     justifyContent: "flex-end",
-    gap: "20px", // Adds space between the buttons
+    gap: "20px",
   },
   iconWrapper: {
     display: "flex",
@@ -81,13 +103,13 @@ const styles = {
     width: "40px",
     height: "40px",
     borderRadius: "50%",
-    backgroundColor: "black", 
-    border: "2px solid white", 
-    transition: "background-color 0.3s ease", 
+    backgroundColor: "black",
+    border: "2px solid white",
+    transition: "background-color 0.3s ease",
   },
   icon: {
-    color: "white", // Icon color
-    fontSize: "24px", // Icon size
+    color: "white",
+    fontSize: "24px",
     cursor: "pointer",
   },
 };

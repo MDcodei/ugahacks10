@@ -28,3 +28,25 @@
     border-radius: 5px;
     animation: neon-border 3s infinite alternate;
 }
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+  border-radius: 8px; /* Optional: Add rounded corners to the border */
+  
+}
+
+.generate-button {
+  color: #ffffff; /* Text color */
+  border-color: #e056fd; /* Border color */
+}
+
+.generate-button:hover {
+  background-color: #e056fd; /* Hover background */
+  border-color: #ffffff; /* Hover border color */
+  color: #1a1a1a; /* Text color on hover */
+}
+
